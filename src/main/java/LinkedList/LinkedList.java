@@ -9,7 +9,7 @@ public class LinkedList {
         int value;
         Node next;
 
-        Node(int value) {
+        private Node(int value) {
             this.value = value;
         }
     }
