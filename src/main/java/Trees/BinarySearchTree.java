@@ -1,5 +1,9 @@
 package Trees;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class BinarySearchTree {
     // Full node means every node points to two or zero nodes
     // Perfect if every level is completely filled
@@ -147,5 +151,101 @@ public class BinarySearchTree {
         }
 
         return currentNode.value;
+    }
+
+    public ArrayList<Integer> BFS() {
+        Node currentNode = root;
+        Queue<Node> queue = new LinkedList<>();
+        ArrayList<Integer> results = new ArrayList<>();
+
+        // Add the root to queue
+        queue.add(currentNode);
+
+        while(queue.size() > 0) {
+            currentNode = queue.remove();
+            results.add(currentNode.value);
+
+            if (currentNode.left != null) {
+                queue.add(currentNode.left);
+            }
+
+            if (currentNode.right != null) {
+                queue.add((currentNode.right));
+            }
+        }
+
+        return results;
+    }
+
+    // Preorder: data, left, right
+    // Inorder: left, data, right
+    // Postorder: left, right, data
+
+    // PreOrder, InOrder, and PostOrder
+    //  have exact same cod except
+    //  for where interacting with data takes place
+
+    // Visits root, left, right
+    public ArrayList<Integer> DFSPreOrder() {
+        ArrayList<Integer> results = new ArrayList<>();
+
+        // Workaround to place a method inside a method
+        class Traverse {
+            Traverse(Node currentNode) {
+                // Add implies visited
+                // Could also print to screen
+                // Generally visited means interact with the data
+                results.add(currentNode.value);
+                if(currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+                if(currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+
+        new Traverse(root);
+        return results;
+    }
+
+    public ArrayList<Integer> DFSPostOrder() {
+        ArrayList<Integer> results = new ArrayList<>() ;
+
+        // Workaround to place a method inside a method
+        class Traverse {
+            Traverse(Node currentNode) {
+                if(currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+                if(currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+                results.add(currentNode.value);
+            }
+        }
+
+        new Traverse(root);
+        return results;
+    }
+
+    public ArrayList<Integer> DFSInOrder() {
+        ArrayList<Integer> results = new ArrayList<>() ;
+
+        // Workaround to place a method inside a method
+        class Traverse {
+            Traverse(Node currentNode) {
+                if(currentNode.left != null) {
+                    new Traverse(currentNode.left);
+                }
+                results.add(currentNode.value);
+                if(currentNode.right != null) {
+                    new Traverse(currentNode.right);
+                }
+            }
+        }
+
+        new Traverse(root);
+        return results;
     }
 }

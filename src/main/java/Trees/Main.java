@@ -70,5 +70,60 @@ public class Main {
         System.out.println(myBST.root.value); // 47
         System.out.println(myBST.root.left.value); // 24
 
+        System.out.println();
+
+        // Breadth First Search
+        System.out.println("Executing BST");
+        myBST = new BinarySearchTree();
+        myBST.rInsert(47);
+        myBST.rInsert(21);
+        myBST.rInsert(76);
+        myBST.rInsert(18);
+        myBST.rInsert(27);
+        myBST.rInsert(52);
+        myBST.rInsert(82);
+        System.out.println(myBST.BFS());
+
+        System.out.println();
+
+        // Depth First Search PreOrder
+        System.out.println("Executing DFS PreOrder");
+        myBST = new BinarySearchTree();
+        myBST.rInsert(47);
+        myBST.rInsert(21);
+        myBST.rInsert(76);
+        myBST.rInsert(18);
+        myBST.rInsert(27);
+        myBST.rInsert(52);
+        myBST.rInsert(82);
+        System.out.println(myBST.DFSPreOrder());
+
+        System.out.println();
+
+        // Depth First Search PostOrder
+        System.out.println("Executing DFS PreOrder");
+        myBST = new BinarySearchTree();
+        myBST.rInsert(47);
+        myBST.rInsert(21);
+        myBST.rInsert(76);
+        myBST.rInsert(18);
+        myBST.rInsert(27);
+        myBST.rInsert(52);
+        myBST.rInsert(82);
+        System.out.println(myBST.DFSPostOrder());
+
+        System.out.println();
+
+        // Depth First Search InOrder
+        System.out.println("Executing DFS PreOrder");
+        myBST = new BinarySearchTree();
+        myBST.rInsert(47);
+        myBST.rInsert(21);
+        myBST.rInsert(76);
+        myBST.rInsert(18);
+        myBST.rInsert(27);
+        myBST.rInsert(52);
+        myBST.rInsert(82);
+        System.out.println(myBST.DFSInOrder());
     }
 }
