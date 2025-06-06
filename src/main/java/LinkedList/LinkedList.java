@@ -14,6 +14,22 @@ public class LinkedList {
         }
     }
 
+    //   +===================================================+
+    //   | Description:                                      |
+    //   | - Constructor for the LinkedList class.           |
+    //   | - Initializes the linked list with a single node. |
+    //   |                                                   |
+    //   | Parameters:                                       |
+    //   | - value: The integer value of the first node in   |
+    //   |   the newly created linked list.                  |
+    //   |                                                   |
+    //   | Behavior:                                         |
+    //   | - A new Node is created with the given value.     |
+    //   | - This node is set as both the head and tail of   |
+    //   |   the list, indicating it is the only node in the |
+    //   |   list at creation.                               |
+    //   | - The length of the list is initialized to 1.     |
+    //   +===================================================+
     public LinkedList(int value) {
         Node newNode = new Node(value);
         head = newNode;
@@ -62,14 +78,20 @@ public class LinkedList {
         Node temp = head;
         Node pre = head;
 
+        // On each iteration,
+        //  pre ends up one node behind temp.
+        // Loop ends when temp is at the end,
+        //  and pre is second to end (unless length 1 array linked list)
         while(temp.next != null) {
             pre = temp;
             temp = temp.next;
         }
 
+        // Now pre is second to end (unless length 1 linked list),
+        //  and temp is at the end.
+        // Update tail to pre, and set tail's next to null
         tail = pre;
         tail.next = null;
-
         length--;
 
         // Edge case when we started with 1 Node
@@ -78,6 +100,7 @@ public class LinkedList {
             tail = null;
         }
 
+        // Return the removed node
         return temp;
     }
 

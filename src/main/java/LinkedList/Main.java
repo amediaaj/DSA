@@ -125,5 +125,25 @@ public class Main {
         myLinkedList.removeFirst();
         myLinkedList.reverse();
         myLinkedList.printList();
+
+        System.out.println();
+
+        // Exercises
+
+        // Find middle element in LinkedList
+        System.out.println("Finding middle element");
+        myLinkedList = new LinkedList(1);
+        myLinkedList.removeFirst(); // Empty LinkedList
+        System.out.println(Exercises.findMiddleNode(myLinkedList)); // null
+        myLinkedList.append(1);
+        System.out.println(Exercises.findMiddleNode(myLinkedList).value); // 1
+        myLinkedList.append(2);
+        System.out.println(Exercises.findMiddleNode(myLinkedList).value); // 1
+        myLinkedList.append(3);
+        System.out.println(Exercises.findMiddleNode(myLinkedList).value); // 2
+        myLinkedList.append(4);
+        System.out.println(Exercises.findMiddleNode(myLinkedList).value); // 2
+        myLinkedList.append(5);
+        System.out.println(Exercises.findMiddleNode(myLinkedList).value); // 3
     }
 }
