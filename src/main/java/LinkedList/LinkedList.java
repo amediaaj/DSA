@@ -164,20 +164,26 @@ public class LinkedList {
     }
 
     public boolean insert(int index, int value) {
+        // Return false if index out of bounds
         if(index < 0 || index > length) {
             return false;
         }
 
+        // If index is zero, prepend
         if(index == 0) {
             prepend(value);
             return true;
         }
 
+        // If index is length, append
         if(index == length){
             append(value);
             return true;
         }
 
+        // Otherwise create new node,
+        //  get the node prior to index
+        //  and insert after that node
         Node newNode = new Node(value);
         Node temp = get(index - 1);
         newNode.next = temp.next;
@@ -211,18 +217,28 @@ public class LinkedList {
     }
 
     public void reverse() {
-        Node temp = head;
+        // Swap head and tail
+        Node current = head;
         head = tail;
-        tail = temp;
+        tail = current;
 
+        // before should point to the left of the LinkedList
         Node before = null;
+        // after will be assigned at the start of the loop;
         Node after;
 
+        // Change the direction of the pointers
         for (int i = 0; i < length; i++) {
-            after = temp.next;
-            temp.next = before;
-            before = temp;
-            temp = after;
+            // Set after to the right of current
+            after = current.next;
+
+            // Change current pointer from pointing right to pointing left
+            current.next = before;
+
+            // Move before one step to the right
+            before = current;
+            // Move current one step to the right
+            current = after;
         }
     }
 }

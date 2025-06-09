@@ -145,5 +145,17 @@ public class Main {
         System.out.println(Exercises.findMiddleNode(myLinkedList).value); // 2
         myLinkedList.append(5);
         System.out.println(Exercises.findMiddleNode(myLinkedList).value); // 3
+
+        // Determine if LinkedList has loop
+        System.out.println("Determining if LinkedList has loop");
+        myLinkedList = new LinkedList(1);
+        myLinkedList.removeFirst(); // Empty LinkedList
+        myLinkedList.append(1);
+        myLinkedList.append(2);
+        myLinkedList.append(3);
+        myLinkedList.append(4);
+        myLinkedList.append(5);
+        myLinkedList.get(4).next = myLinkedList.get(0);
+        System.out.println(Exercises.hasLoop(myLinkedList));
     }
 }

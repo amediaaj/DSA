@@ -19,4 +19,19 @@ public class Exercises {
         return slow;
     }
 
+    public static boolean hasLoop(LinkedList linkedList) {
+        LinkedList.Node slow = linkedList.get(0), fast = slow;
+
+        while(fast != null && fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if(slow == fast) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
